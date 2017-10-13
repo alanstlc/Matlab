@@ -1,22 +1,22 @@
 function [x,y,xz,yz] = move(x,y,x_zpatky,y_zpatky,handles)
 
-%Semestrální projekt A2M32MKS
-%Alan Štolc, Alexandr Pošta
-%ÈVUT FEl 2013
+%SemestrÃ¡lnÃ­ projekt A2M32MKS
+%Alan Å tolc
+%ÃˆVUT FEl 2013
 %
-%funkce poèítající budoucí polohu z aktuální a minulé polohy
+%funkce poÃ¨Ã­tajÃ­cÃ­ budoucÃ­ polohu z aktuÃ¡lnÃ­ a minulÃ© polohy
 global mapa;
 global odboceni;
-%nastvení pravdìpodobnosti odboèení pomocí posuvnéo slideru
+%nastvenÃ­ pravdÃ¬podobnosti odboÃ¨enÃ­ pomocÃ­ posuvnÃ©o slideru
 pst=get(handles.slider1,'Value');
 
-%co všechno se mùe stát a jak se zachová
+%co vÅ¡echno se mÃ¹Å¾e stÃ¡t a jak se zachovÃ¡
 %jde nahoru
 if y_zpatky<y
-%uloení pùvodních zpáteèních hodnot
+%uloÅ¾enÃ­ pÃ¹vodnÃ­ch zpÃ¡teÃ¨nÃ­ch hodnot
 xz=x;
 yz=y;
-    %rovné èáry
+    %rovnÃ© Ã¨Ã¡ry
                if mapa(x+1,y)==0&&mapa(x-1,y)==0
                y=y+1;
     %rohy
@@ -24,7 +24,7 @@ yz=y;
                x=x-1; 
                elseif mapa(x+1,y)==1&&mapa(x-1,y)==0&&mapa(x,y+1)==0
                x=x+1; 
-    %køiovatka
+    %kÃ¸iÅ¾ovatka
                elseif mapa(x+1,y)==1&&mapa(x-1,y)==1&&mapa(x,y+1)==1
                zatoci=rand(); 
                   if zatoci>pst
@@ -49,7 +49,7 @@ yz=y;
 elseif y_zpatky>y
 xz=x;
 yz=y;   
-    %rovné èáry
+    %rovnÃ© Ã¨Ã¡ry
                if mapa(x+1,y)==0&&mapa(x-1,y)==0
                y=y-1;
     %rohy
@@ -57,7 +57,7 @@ yz=y;
                x=x-1; 
                elseif mapa(x+1,y)==1&&mapa(x-1,y)==0&&mapa(x,y-1)==0
                x=x+1; 
-    %køiovatka
+    %kÃ¸iÅ¾ovatka
                elseif mapa(x+1,y)==1&&mapa(x-1,y)==1&&mapa(x,y-1)==1
                zatoci=rand(); 
                   if zatoci>pst
@@ -81,7 +81,7 @@ yz=y;
 elseif x_zpatky>x
 xz=x;
 yz=y;   
-    %rovné èáry
+    %rovnÃ© Ã¨Ã¡ry
                if mapa(x,y+1)==0&&mapa(x,y-1)==0
                x=x-1;
     %rohy
@@ -89,7 +89,7 @@ yz=y;
                y=y-1; 
                elseif mapa(x,y+1)==1&&mapa(x,y-1)==0&&mapa(x-1,y)==0
                y=y+1; 
-    %køiovatka
+    %kÃ¸iÅ¾ovatka
                elseif mapa(x,y+1)==1&&mapa(x,y-1)==1&&mapa(x-1,y)==1
                zatoci=rand(); 
                   if zatoci>pst
@@ -114,7 +114,7 @@ yz=y;
 elseif x_zpatky<x
 xz=x;
 yz=y;  
-    %rovné èáry
+    %rovnÃ© Ã¨Ã¡ry
                if mapa(x,y+1)==0&&mapa(x,y-1)==0
                x=x+1;
     %rohy
@@ -122,7 +122,7 @@ yz=y;
                y=y-1; 
                elseif mapa(x,y+1)==1&&mapa(x,y-1)==0&&mapa(x+1,y)==0
                y=y+1; 
-    %køiovatka
+    %kÃ¸iÅ¾ovatka
                elseif mapa(x,y+1)==1&&mapa(x,y-1)==1&&mapa(x+1,y)==1
                zatoci=rand(); 
                   if zatoci>pst
